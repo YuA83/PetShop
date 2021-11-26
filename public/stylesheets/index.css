@@ -1,0 +1,13 @@
+.searchWrap {
+    display: flex;    
+}
+
+.navWrap {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav {
+    display: flex;
+    list-style: none;
+}
