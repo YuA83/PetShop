@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>Title</title>
+</head>
+<body>
+    <form action="/signup" method="post">
+        email
+        <input type="email" name="email" class="email" required>
+        password
+        <input type="password" name="password" class="password" required>
+        name
+        <input type="text" name="name" class="name" required>
+        petName
+        <input type="text" name="petName" class="petName" required>
+        petSpecies
+        <select name="species" class="species" required>
+            <option value="dog">Dog</option>
+            <option value="cat">Cat</option>
+            <option value="hedgehog">Hedgehog</option>
+            <option value="hamster">Hamster</option>
+        </select>
+        petBirth
+        <input type="date" name="petBirth" class="petBirth" required>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

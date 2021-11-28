@@ -3,16 +3,26 @@
 /**
  * Module dependencies.
  */
+require("dotenv").config();
+const { PORT, MONGO_URI } = process.env;
+const app = require("../app");
+const debug = require("debug")("naver:server");
+const http = require("http");
+const mongoose = require("mongoose");
 
-const app = require('../app');
-const debug = require('debug')('naver:server');
-const http = require('http');
+mongoose.connect(MONGO_URI)
+    .then(() => {
+        console.log("몽고 Atlas 연결");
+    })
+    .catch((error) => {
+        console.log(error);
+    });
 
 /**
  * Get port from environment and store in Express.
  */
 
-const port = normalizePort(process.env.PORT || '3000');
+const port = normalizePort(PORT || '3000');
 app.set('port', port);
 
 /**
