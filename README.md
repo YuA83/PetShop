@@ -1,4 +1,4 @@
-# Not Naver_clone
+# PetShop_PoDo
 node.js
 Java
 Spring Boot
