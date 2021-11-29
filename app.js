@@ -9,6 +9,7 @@ const headerRouter = require('./routes/header');
 const signupRouter = require('./routes/signup');
 const signinRouter = require('./routes/signin');
 const signoutRouter = require('./routes/signout');
+const findRouter = require('./routes/find');
 
 const app = express();
 
@@ -27,6 +28,7 @@ app.use('/header', headerRouter);
 app.use('/signup', signupRouter);
 app.use('/signin', signinRouter);
 app.use('/signout', signoutRouter);
+app.use('/find', findRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

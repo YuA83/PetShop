@@ -130,7 +130,7 @@ function foldDaumPostcode() {
     element_wrap.style.display = 'none';
 }
 
-function sample3_execDaumPostcode() {
+function execDaumPostcode() {
     // 현재 scroll 위치를 저장해놓는다.
     let currentScroll = Math.max(document.body.scrollTop, document.documentElement.scrollTop);
     new daum.Postcode({
