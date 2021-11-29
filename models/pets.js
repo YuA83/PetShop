@@ -1,24 +1,24 @@
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
+const PetSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
         unique: true
     },
-    password: {
+    petName: {
         type: String,
         required: true
     },
-    salt: {
+    species: {
         type: String,
         required: true
     },
-    name: {
-        type: String,
+    petBirth: {
+        type: Date,
         required: true
     }
 });
 
-const Users = mongoose.model("Users", UserSchema);
-module.exports = Users;
+const Pets = mongoose.model("Pets", PetSchema);
+module.exports = Pets;

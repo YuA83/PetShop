@@ -6,24 +6,40 @@
 <body>
     <form action="/signup" method="post">
         email
-        <input type="email" name="email" class="email" required>
+        <input type="email" name="email" class="email">
         password
-        <input type="password" name="password" class="password" required>
+        <input type="password" name="password" class="password">
         name
-        <input type="text" name="name" class="name" required>
+        <input type="text" name="name" class="name">
         petName
-        <input type="text" name="petName" class="petName" required>
+        <input type="text" name="petName" class="petName">
         petSpecies
-        <select name="species" class="species" required>
+        <select name="species" class="species">
             <option value="dog">Dog</option>
             <option value="cat">Cat</option>
             <option value="hedgehog">Hedgehog</option>
             <option value="hamster">Hamster</option>
         </select>
         petBirth
-        <input type="date" name="petBirth" class="petBirth" required>
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
+        <input type="date" name="petBirth" class="petBirth">
+        Address
+        <input type="text" name="postcode" id="postcode" placeholder="우편번호">
+        <input type="button" onclick="sample3_execDaumPostcode()" value="우편번호 찾기"><br>
+        <input type="text" name="address" id="address" placeholder="주소"><br>
+        <input type="text" name="detailAddress" id="detailAddress" placeholder="상세주소">
+        <input type="text" name="extraAddress" id="extraAddress" placeholder="참고항목">
+
+        <div id="wrap" style="display:none;border:1px solid;width:500px;height:300px;margin:5px 0;position:relative">
+            <img src="//t1.daumcdn.net/postcode/resource/images/close.png" id="btnFoldWrap"
+                style="cursor:pointer;position:absolute;right:0px;top:-1px;z-index:1" onclick="foldDaumPostcode()" alt="접기 버튼">
+        </div>
+        Phone
+        <input type="text" name="phone" class="phone">
+        <button type="reset" class="reset">Reset</button>
+        <button type="submit" class="submit">Submit</button>
     </form>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script src="/javascripts/signup.js"></script>
 </html>

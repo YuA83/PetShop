@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+</head>
+<body>
+    <div id="header">
+        <div id="logo">
+            <!-- <img src="/images/logo.png"/> -->
+        </div>
+        <div class="nav">
+            <ul>
+                <!-- 로그인 O -->
+                <% if (login) { %>
+                    <!-- 관리자 계정 -->
+                    <% if (userId == "admin") { %>
+                        <li>관리자 님</li>
+                        <li><a href="/signout">Logout</a></li>
+                    <!-- 일반 유저 -->
+                    <% } else { %>
+                        <li><%= petName %> 님</li>
+                        <li><a href="/signout">Logout</a></li>
+                    <% } %>
+                <!-- 로그인 X -->
+                <% } else { %>
+                    <li><a href="/signin">Sign In</a></li>
+                    <li><a href="/signup">Sign Up</a></li>
+                <% } %>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
