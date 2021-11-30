@@ -18,7 +18,7 @@ const emailAuth = (email, token, hexNum) => {
         to: email,
         subject: "[ PoDo 인증번호 ]",
         html: `아래의 URL을 클릭하여 인증번호를 입력해주세요. (유효시간 5분)\n
-            http://localhost/${email}/${token} \n
+            http://localhost/find/${email}/${token} \n
             [  ${hexNum}  ]`
     }
 

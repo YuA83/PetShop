@@ -52,9 +52,10 @@ router.post("/password", (req, res, next) => {
 router.get("/:email/:token", verifyToken);
 
 router.post("/authConfirm", (req, res, next) => {
+    const email = req.body.hiddenEmail;
     const authNum = req.body.auth;
 
-    Auth.find({email: userEmail})
+    Auth.find({email: email})
         .then((result) => {
             if (result.length) {
                 if (result[0].hex == authNum)

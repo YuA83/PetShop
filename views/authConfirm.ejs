@@ -6,6 +6,7 @@
 <body>
     <form accept="/find/authConfirm" method="post">
         Auth Hex Number
+        <input type="hidden" value="<%= userEmail %>" name="hiddenEmail" class="hiddenEmail">
         <input type="text" name="auth" class="auth" maxlength="6">
         <button type="submit" class="submit">submit</button>
     </form>
