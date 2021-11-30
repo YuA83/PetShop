@@ -5,8 +5,7 @@ const crypto = require("crypto");
 const Users = require("../models/users");
 const Pets = require("../models/pets");
 const session = require("./session");
-// const jwt = require("jsonwebtoken");
-// const SECRET_KEY = process.env.SECRET_KEY;
+const createToken = require("./middlewares/createToken");
 
 router.use(session);
 
@@ -32,8 +31,10 @@ router.post("/", (req, res, next) => {
                             req.session.save();
                         });
 
+                        
+                        const token = createToken.createToken(body);
+                        res.cookie("token", token);
                         res.send("<script>location.replace(\"/\")</script>");
-
                         // using jwt & cookie
                         /*
                         const token = jwt.sign(
@@ -63,7 +64,7 @@ router.post("/", (req, res, next) => {
             else {
                 res.send("<script>alert(\"[ FAIL ]\"); location.replace(\"/signin\");</script>");
             }
-        })
+        });
 });
 
 module.exports = router;
