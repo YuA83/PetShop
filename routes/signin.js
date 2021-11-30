@@ -5,7 +5,6 @@ const crypto = require("crypto");
 const Users = require("../models/users");
 const Pets = require("../models/pets");
 const session = require("./session");
-const createToken = require("./middlewares/createToken");
 
 router.use(session);
 
@@ -31,38 +30,15 @@ router.post("/", (req, res, next) => {
                             req.session.save();
                         });
 
-                        
-                        const token = createToken.createToken(body);
-                        res.cookie("token", token);
                         res.send("<script>location.replace(\"/\")</script>");
-                        // using jwt & cookie
-                        /*
-                        const token = jwt.sign(
-                            { 
-                                userId: body.email,
-                                petName: body.petName
-                            },
-                            SECRET_KEY,
-                            { expiresIn: "1m" }
-                        );
-
-                        res.cookie("user", token);
-                        res.status(201).json({
-                            result: "success",
-                            token
-                        });
-
-                        res.send("<script>location.replace(\"/\")</script>");
-                        */
                     }
                     else {
-                        // res.status(400).json({error: "invalid user"});
-                        res.send("<script>alert(\"[ FAIL ]\"); location.replace(\"/signin\");</script>");
+                        res.send("<script>alert(\"[ ===== FAIL ===== ] Password incorrect\"); location.replace(\"/signin\");</script>");
                     }
                 });
             }
             else {
-                res.send("<script>alert(\"[ FAIL ]\"); location.replace(\"/signin\");</script>");
+                res.send("<script>alert(\"[ ===== FAIL ===== ] No exist\"); location.replace(\"/signin\");</script>");
             }
         });
 });

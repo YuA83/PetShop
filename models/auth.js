@@ -6,11 +6,7 @@ const AuthSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
-    token: {
-        type: String,
-        required: true
-    },
-    ttl: {
+    hex: {
         type: String,
         required: true
     }

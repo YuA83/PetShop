@@ -4,20 +4,22 @@ const SECRET_KEY = process.env.SECRET_KEY;
 
 const verifyToken = (req, res, next) => {
     try {
-        const clientToken = req.cookies.token;
+        const clientToken = req.params.token;
+        // const clientToken = req.cookies.token;
         const decoded = jwt.verify(clientToken, SECRET_KEY);
 
         if (decoded) {
-            console.log(decoded);
-            res.locals.userId = decoded.userId;
-            res.locals.petName = decoded.petName;
-            res.send(decoded.userId);
+            res.locals.userEmail = decoded.userId;
+            res.render("authConfirm");
+            // res.locals.userId = decoded.userId;
+            // res.locals.petName = decoded.petName;
+            // res.send(decoded.userId);
         }
         else {
-            res.send("<script>alert(\"[ ERROR ] unauthorized\"); location.replace(\"/signin\");</script>");
+            res.send("<script>alert(\"[ ERROR ] Unauthorized\"); location.replace(\"/find/password\");</script>");
         }
     } catch (error) {
-        res.send("<script>alert(\"[ ERROR ] toeken expired\"); location.replace(\"/signin\");</script>");
+        res.send("<script>alert(\"[ ERROR ] Token Expired\"); location.replace(\"/find/password\");</script>");
     }
 }
 
