@@ -1,5 +1,4 @@
 # PetShop_PoDo
-node.js
-Java
-Spring Boot
+Node.js
+React.js
 MongoDB Atlas
